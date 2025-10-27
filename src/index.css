@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 204 100% 97%; /* light sky blue background */
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 142 71% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 138 30% 88%;
+    --secondary-foreground: 142 40% 20%;
+
+    --muted: 200 40% 90%;
+    --muted-foreground: 220 15% 30%;
+
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 204 30% 85%;
+    --input: 204 30% 85%;
+    --ring: 142 71% 45%;
+
+    --radius: 0.75rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(217, 71%, 41%), hsl(215, 75%, 38%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(138 30% 98%));
+    --shadow-card: 0 4px 20px -2px hsla(209, 71%, 45%, 0.1);
+    --shadow-hover: 0 8px 30px -4px hsl(142 71% 45% / 0.2);
+
+    --sidebar-background: 204 100% 97%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 204 60% 92%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 204 30% 85%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 210 60% 18%; /* dark sky blue */
+    --foreground: 0 0% 98%;
+
+    --card: 210 60% 20%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 210 60% 20%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 142 71% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 30%;
+    --secondary-foreground: 138 30% 88%;
+
+    --muted: 210 30% 25%;
+    --muted-foreground: 210 10% 70%;
+
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 210 30% 30%;
+    --input: 210 30% 30%;
+    --ring: 142 71% 45%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(210, 60%, 25%), hsl(210, 70%, 35%));
+    --gradient-card: linear-gradient(180deg, hsl(210 60% 20%), hsl(210 60% 18%));
+    --shadow-card: 0 4px 20px -2px hsl(142 71% 45% / 0.15);
+    --shadow-hover: 0 8px 30px -4px hsl(142 71% 45% / 0.25);
+
+    --sidebar-background: 210 60% 18%;
+    --sidebar-foreground: 210 30% 90%;
+    --sidebar-primary: 210 70% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 60% 25%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 210 30% 30%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+}
+ @keyframes scroll {
+    0% {
+      transform: translateX(50%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    animation: scroll 10s linear infinite;
+  }
+  /* Pause animation on hover */
+.hover\:animation-paused:hover {
+  animation-play-state: paused !important;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradientMove {
+  background-size: 200% 200%;
+  animation: gradientMove 10s ease infinite;
+}
