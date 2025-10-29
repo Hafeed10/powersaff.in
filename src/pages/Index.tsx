@@ -148,7 +148,7 @@ const Index = ({ productCount }) => {
                   className="text-lg px-8 border-2 border-sky-400  text-black hover:bg-sky-900 hover:text-white hover:scale-105 transition-transform"
                 >
                   <Plus className="mr-2 h-5 w-5" />
-                   Products
+                  All Products
                 </Button>
               </Link>
             </div>

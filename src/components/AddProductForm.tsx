@@ -5,43 +5,48 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
-import type { Product } from "./ProductCard";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../firebase";
 
-interface AddProductFormProps {
-  onAddProduct: (product: Omit<Product, "id">) => void;
-}
-
-export const AddProductForm = ({ onAddProduct }: AddProductFormProps) => {
+export const AddProductForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     description: "",
     image: "",
     category: "",
+    price: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!formData.name || !formData.description || !formData.image || !formData.category) {
+
+    if (!formData.name || !formData.description || !formData.image || !formData.category || !formData.price) {
       toast.error("Please fill in all fields");
       return;
     }
 
-    onAddProduct({
-      name: formData.name,
-      description: formData.description,
-      image: formData.image,
-      category: formData.category,
-    });
+    try {
+      await addDoc(collection(db, "products"), {
+        name: formData.name,
+        description: formData.description,
+        image: formData.image,
+        category: formData.category,
+        price: parseFloat(formData.price),
+        createdAt: new Date(),
+      });
 
-    setFormData({
-      name: "",
-      description: "",
-      image: "",
-      category: "",
-    });
-
-    toast.success("Product added successfully!");
+      toast.success("Product added successfully!");
+      setFormData({
+        name: "",
+        description: "",
+        image: "",
+        category: "",
+        price: "",
+      });
+    } catch (error) {
+      console.error("Error adding product:", error);
+      toast.error("Failed to add product");
+    }
   };
 
   return (
@@ -50,10 +55,9 @@ export const AddProductForm = ({ onAddProduct }: AddProductFormProps) => {
         <CardTitle className="text-2xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
           Add New Product
         </CardTitle>
-        <CardDescription>
-          Fill in the details to add a new product to your store
-        </CardDescription>
+        <CardDescription>Fill in the details to add a new product</CardDescription>
       </CardHeader>
+
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
@@ -67,10 +71,21 @@ export const AddProductForm = ({ onAddProduct }: AddProductFormProps) => {
           </div>
 
           <div className="space-y-2">
+            <Label htmlFor="price">Price</Label>
+            <Input
+              id="price"
+              type="number"
+              placeholder="Enter price"
+              value={formData.price}
+              onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+            />
+          </div>
+
+          <div className="space-y-2">
             <Label htmlFor="category">Category</Label>
             <Input
               id="category"
-              placeholder="e.g., Electronics, Clothing, Books"
+              placeholder="e.g., Electronics, Books"
               value={formData.category}
               onChange={(e) => setFormData({ ...formData, category: e.target.value })}
             />
@@ -80,8 +95,8 @@ export const AddProductForm = ({ onAddProduct }: AddProductFormProps) => {
             <Label htmlFor="image">Image URL</Label>
             <Input
               id="image"
-              type="file"
-              placeholder="jpg file upload"
+              type="text"
+              placeholder="Paste image URL"
               value={formData.image}
               onChange={(e) => setFormData({ ...formData, image: e.target.value })}
             />
@@ -98,8 +113,8 @@ export const AddProductForm = ({ onAddProduct }: AddProductFormProps) => {
             />
           </div>
 
-          <Button 
-            type="submit" 
+          <Button
+            type="submit"
             className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity"
             size="lg"
           >

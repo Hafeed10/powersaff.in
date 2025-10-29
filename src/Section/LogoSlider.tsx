@@ -6,8 +6,8 @@ const LogoSlider = () => {
   return (
     <div className="relative overflow-hidden py-8">
       {/* Gradient overlays */}
-      <div className="absolute top-0 left-0 h-full w-64 bg-gradient-to-l from-white via-transparent z-10 pointer-events-none"></div>
-      <div className="absolute top-0 right-0 h-full w-64 bg-gradient-to-r from-white via-transparent z-10 pointer-events-none"></div>
+      <div className="absolute top-0 left-0  h-full w-64 bg-gradient-to-l  via-transparent z-10 pointer-events-none"></div>
+      <div className="absolute top-0 right-0 h-full w-64 bg-gradient-to-r  via-transparent z-10 pointer-events-none"></div>
 
       {/* Logo rows */}
       {[0].map((_, i) => (
