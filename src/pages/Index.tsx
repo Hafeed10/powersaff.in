@@ -16,7 +16,7 @@ import Advantages from "@/Section/Advantages";
 import { FaWhatsapp } from "react-icons/fa";
 const slides = [
   {
-    title: "Welcome to PowerSaff",
+    title: "Welcome To POWER SAFF",
     subtitle: "Your Modern eCommerce Product Management Platform",
   },
   {
@@ -119,7 +119,7 @@ const Index = ({ productCount }) => {
                 exit={{ opacity: 0, scale: 0.95, y: -30 }}
                 transition={{ duration: 1 }}
               >
-                <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r text-white bg-clip-text text-transparent">
+                <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r text-white bg-clip-text text-transparent uppercase">
                   {slides[index].title}
                 </h2>
                 <p className="text-xl md:text-2xl mb-8 text-gray-300 font-medium">

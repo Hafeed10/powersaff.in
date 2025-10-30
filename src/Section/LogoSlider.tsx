@@ -1,18 +1,15 @@
 import React from "react";
 import "./LogoSlider.css"; // Import the CSS for animations
-import images1 from "../assets/Logos/image 4.png";
-import images2 from "../assets/Logos/image.png";
-import images3 from "../assets/Logos/image3.png";
-import images4 from "../assets/Logos/output-onlinepngtools.png";
+import images4 from "../assets/Logos/image 4.png";
 
 const logos = [
-  images1,
-  images2,
-  images3,
   images4,
-  images1,
-  images2,
-  images3,
+  images4,
+  images4,
+  images4,
+  images4,
+  images4,
+  images4,
   images4,
 ];
 
