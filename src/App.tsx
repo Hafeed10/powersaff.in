@@ -12,8 +12,9 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Navigation from "./components/Navigation";
-import Footer from "../src/Section/Footer"; // Correct import
+import Footer from "@/Section/Footer";
 import type { Product } from "./components/ProductCard";
+import Login from "./components/Login";
 
 const queryClient = new QueryClient();
 
@@ -35,12 +36,16 @@ const App = () => {
         <TooltipProvider>
           <Toaster />
           <Routes>
-            <Route path="/" element={<Index productCount={products.length} />} />
+            <Route
+              path="/"
+              element={<Index productCount={products.length} />}
+            />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/products" element={<ProductsPage products={products} />} />
-            <Route path="/manage" element={<ManageProducts onAddProduct={handleAddProduct} />} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/manage" element={<ManageProducts />} />
+            <Route path="/login" element={<Login />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </TooltipProvider>

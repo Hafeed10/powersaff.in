@@ -15,15 +15,26 @@ import Logo from "@/assets/output-onlinepngtools.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navLinks = [
     { to: "/", label: "Home", icon: <HomeIcon className="mr-2 h-4 w-4" /> },
     { to: "/about", label: "About", icon: <Info className="mr-2 h-4 w-4" /> },
-    { to: "/services", label: "Services", icon: <Briefcase className="mr-2 h-4 w-4" /> },
-    { to: "/contact", label: "Contact", icon: <Mail className="mr-2 h-4 w-4" /> },
-    { to: "/products", label: "Products", icon: <ShoppingBag className="mr-2 h-4 w-4" /> },
+    {
+      to: "/services",
+      label: "Services",
+      icon: <Briefcase className="mr-2 h-4 w-4" />,
+    },
+    {
+      to: "/contact",
+      label: "Contact",
+      icon: <Mail className="mr-2 h-4 w-4" />,
+    },
+    {
+      to: "/products",
+      label: "Products",
+      icon: <ShoppingBag className="mr-2 h-4 w-4" />,
+    },
   ];
 
   return (
@@ -45,7 +56,8 @@ const Navigation = () => {
             </Link>
           ))}
 
-          <Link to="/manage">
+          {/* Add Product Button → Login Page */}
+          <Link to="/login">
             <Button
               className="bg-gradient-to-r from-sky-950 to-sky-900 hover:opacity-90"
               size="sm"
@@ -56,7 +68,7 @@ const Navigation = () => {
           </Link>
         </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Toggle */}
         <button
           onClick={toggleMenu}
           className="md:hidden text-foreground focus:outline-none"
@@ -81,7 +93,8 @@ const Navigation = () => {
             </Link>
           ))}
 
-          <Link to="/manage" onClick={() => setIsOpen(false)}>
+          {/* Add Product → Login */}
+          <Link to="/login" onClick={() => setIsOpen(false)}>
             <Button
               className="w-full bg-gradient-to-r from-sky-950 to-sky-900 hover:opacity-90"
               size="sm"

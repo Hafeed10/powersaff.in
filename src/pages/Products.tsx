@@ -17,7 +17,6 @@ type Product = {
 };
 console.log("Firestore DB connected:", db);
 
-
 const ProductsPage = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -29,7 +28,7 @@ const ProductsPage = () => {
       try {
         setLoading(true);
         setError(null);
-        
+
         const querySnapshot = await getDocs(collection(db, "products"));
         const data = querySnapshot.docs.map((doc) => ({
           id: doc.id,
@@ -54,7 +53,9 @@ const ProductsPage = () => {
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <Loader2 className="h-12 w-12 animate-spin text-sky-950 mx-auto mb-4" />
-          <p className="text-muted-foreground text-lg text-sky-950">Loading products...</p>
+          <p className="text-muted-foreground text-lg text-sky-950">
+            Loading products...
+          </p>
         </div>
       </div>
     );
@@ -88,7 +89,9 @@ const ProductsPage = () => {
 
         {products.length === 0 ? (
           <div className="text-center py-20">
-            <p className="text-muted-foreground text-lg mb-4">No products yet</p>
+            <p className="text-muted-foreground text-lg mb-4">
+              No products yet
+            </p>
             <Link to="/">
               <Button className="bg-gradient-to-r bg-sky-950  hover:bg-sky-900 transition-opacity">
                 <Plus className="mr-2 h-4 w-4" />
@@ -108,9 +111,10 @@ const ProductsPage = () => {
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="h-[300px] w-[300px] object-cover transition-transform duration-500 group-hover:scale-100"
                       onError={(e) => {
-                        (e.target as HTMLImageElement).src = 'https://via.placeholder.com/400?text=No+Image';
+                        (e.target as HTMLImageElement).src =
+                          "https://via.placeholder.com/400?text=No+Image";
                       }}
                     />
                   ) : (
@@ -137,7 +141,7 @@ const ProductsPage = () => {
                   )}
                   {product.price !== undefined && (
                     <p className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                      ${product.price.toFixed(2)}
+                      ₹{product.price.toFixed(2)}
                     </p>
                   )}
                 </div>

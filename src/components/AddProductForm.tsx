@@ -3,7 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { toast } from "sonner";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -20,7 +26,13 @@ export const AddProductForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.description || !formData.image || !formData.category || !formData.price) {
+    if (
+      !formData.name ||
+      !formData.description ||
+      !formData.image ||
+      !formData.category ||
+      !formData.price
+    ) {
       toast.error("Please fill in all fields");
       return;
     }
@@ -55,7 +67,9 @@ export const AddProductForm = () => {
         <CardTitle className="text-2xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
           Add New Product
         </CardTitle>
-        <CardDescription>Fill in the details to add a new product</CardDescription>
+        <CardDescription>
+          Fill in the details to add a new product
+        </CardDescription>
       </CardHeader>
 
       <CardContent>
@@ -66,7 +80,9 @@ export const AddProductForm = () => {
               id="name"
               placeholder="Enter product name"
               value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
             />
           </div>
 
@@ -77,7 +93,9 @@ export const AddProductForm = () => {
               type="number"
               placeholder="Enter price"
               value={formData.price}
-              onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, price: e.target.value })
+              }
             />
           </div>
 
@@ -87,7 +105,9 @@ export const AddProductForm = () => {
               id="category"
               placeholder="e.g., Electronics, Books"
               value={formData.category}
-              onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, category: e.target.value })
+              }
             />
           </div>
 
@@ -98,7 +118,9 @@ export const AddProductForm = () => {
               type="text"
               placeholder="Paste image URL"
               value={formData.image}
-              onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, image: e.target.value })
+              }
             />
           </div>
 
@@ -108,7 +130,9 @@ export const AddProductForm = () => {
               id="description"
               placeholder="Enter product description"
               value={formData.description}
-              onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, description: e.target.value })
+              }
               rows={4}
             />
           </div>

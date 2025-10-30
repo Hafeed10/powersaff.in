@@ -17,7 +17,12 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.message
+    ) {
       alert("Please fill in all required fields.");
       return;
     }
@@ -29,18 +34,16 @@ const Contact = () => {
       message: formData.message,
     };
 
-    emailjs
-      .send(service_id, template_id, templateParams, public_key)
-      .then(
-        () => {
-          alert("Message sent successfully!");
-          setFormData({ name: "", email: "", phone: "", message: "" });
-        },
-        (error) => {
-          console.error("EmailJS Error:", error);
-          alert("Failed to send message. Please try again.");
-        }
-      );
+    emailjs.send(service_id, template_id, templateParams, public_key).then(
+      () => {
+        alert("Message sent successfully!");
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      },
+      (error) => {
+        console.error("EmailJS Error:", error);
+        alert("Failed to send message. Please try again.");
+      }
+    );
   };
 
   return (
@@ -50,8 +53,8 @@ const Contact = () => {
         <h2 className="text-5xl font-bold text-sky-950 mb-2">Contact Us</h2>
         <div className="w-20 h-1 bg-sky-600 mx-auto rounded-full"></div>
         <p className="text-gray-600 mt-4 max-w-xl mx-auto">
-          We’d love to hear from you! Whether you have a question or need a custom solution, 
-          our team is ready to help.
+          We’d love to hear from you! Whether you have a question or need a
+          custom solution, our team is ready to help.
         </p>
       </div>
 
@@ -65,13 +68,15 @@ const Contact = () => {
             </p>
             <h1 className="text-4xl md:text-5xl font-bold text-sky-950 mt-2 leading-snug">
               <span className="text-sky-900">Discuss</span>{" "}
-              <span className="text-sky-950">Your Powersaff Solution Needs</span>
+              <span className="text-sky-950">
+                Your Powersaff Solution Needs
+              </span>
             </h1>
           </div>
 
           <p className="text-gray-600 leading-relaxed max-w-md">
-            Are you looking for top-quality Powersaff solutions tailored to your needs? 
-            Reach out to us.
+            Are you looking for top-quality Powersaff solutions tailored to your
+            needs? Reach out to us.
           </p>
 
           <div className="space-y-4 pt-4">
@@ -81,7 +86,9 @@ const Contact = () => {
               </div>
               <div>
                 <p className="text-sm text-gray-500">E-mail</p>
-                <p className="font-medium text-sky-950">powersaffpkn@gmail.com</p>
+                <p className="font-medium text-sky-950">
+                  powersaffpkn@gmail.com
+                </p>
               </div>
             </div>
 
@@ -101,7 +108,10 @@ const Contact = () => {
         <div className="bg-white rounded-3xl shadow-md p-8 md:p-10 border border-gray-100">
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-sky-950">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-sky-950"
+              >
                 Name
               </label>
               <input
@@ -109,13 +119,18 @@ const Contact = () => {
                 type="text"
                 placeholder="Your Name"
                 value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
                 className="mt-2 w-full rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-blue-500 p-3 text-gray-900"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-sky-950">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-sky-950"
+              >
                 Email
               </label>
               <input
@@ -123,13 +138,18 @@ const Contact = () => {
                 type="email"
                 placeholder="you@example.com"
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
                 className="mt-2 w-full rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-blue-500 p-3 text-gray-900"
               />
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-sky-950">
+              <label
+                htmlFor="phone"
+                className="block text-sm font-medium text-sky-950"
+              >
                 Phone
               </label>
               <input
@@ -137,13 +157,18 @@ const Contact = () => {
                 type="tel"
                 placeholder="+91 9876543210"
                 value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, phone: e.target.value })
+                }
                 className="mt-2 w-full rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-blue-500 p-3 text-gray-900"
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-sky-950">
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-sky-950"
+              >
                 Message
               </label>
               <textarea
@@ -151,7 +176,9 @@ const Contact = () => {
                 placeholder="Type your message..."
                 rows={4}
                 value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
                 className="mt-2 w-full rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-blue-500 p-3 text-gray-900"
               />
             </div>

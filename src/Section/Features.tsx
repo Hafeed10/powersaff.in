@@ -2,7 +2,7 @@ import React from "react";
 import { Package, ShoppingBag, Plus } from "lucide-react";
 
 function Features() {
-  const productCount =40 ; // example count
+  const productCount = 40; // example count
 
   const features = [
     {
@@ -39,9 +39,6 @@ function Features() {
           </div>
         ))}
       </div>
-
-     
-
       {/* Product Count */}
       <div className="text-center mt-16">
         <div className="inline-block px-6 py-3 bg-secondary rounded-full">

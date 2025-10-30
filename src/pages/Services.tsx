@@ -1,5 +1,4 @@
 import React from "react";
-import { Monitor, Palette, Megaphone, Phone } from "lucide-react";
 import image2 from "@/assets/images/servis1.jpg";
 import image3 from "@/assets/images/servis2.jpg";
 import image4 from "@/assets/images/servis3.jpg";

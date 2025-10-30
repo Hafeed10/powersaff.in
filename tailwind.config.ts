@@ -24,8 +24,7 @@ const config: Config = {
         },
       },
       animation: {
-        slide: "slide linear infinite",
-        paused: "paused", // for hover pause
+        slide: "slide 25s linear infinite",
       },
       colors: {
         border: "hsl(var(--border))",

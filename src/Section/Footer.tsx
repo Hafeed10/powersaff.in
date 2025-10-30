@@ -1,8 +1,5 @@
 import React from "react";
 import {
-  FaMapMarkerAlt,
-  FaPhone,
-  FaEnvelopeOpen,
   FaFacebookF,
   FaTwitter,
   FaGooglePlusG,
@@ -22,11 +19,7 @@ const Footer = () => {
           <div>
             <div className="mb-6">
               <a href="/">
-                <img
-                  src={Logo}
-                  alt="logo"
-                 className="h-12 w-auto"
-                />
+                <img src={Logo} alt="logo" className="h-12 w-auto" />
               </a>
             </div>
             <p className="mb-4 text-gray-300 leading-7">
@@ -109,7 +102,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
       {/* Copyright */}
       <div className="bg-white py-4">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-black text-sm">

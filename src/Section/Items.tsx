@@ -1,68 +1,64 @@
 import React, { useState } from "react";
 import image1 from "@/assets/images/product1-removebg-preview-B9JUCw62.png";
-import image2 from "@/assets/images/men-s-hand-holds-glass-clear-water-tap-reverse-osmosis-filter-background_179369-577-DTCZpps5.jpg";
-import image3 from "@/assets/images/sungrow-emea-ceTSHQ0qars-unsplash-C9YZkDef.jpg";
-import image4 from "@/assets/images/thiru-n-n0gFDrIrTuU-unsplash-AVByb_xo.jpg";
+import image2 from "@/assets/images/solar-battery-charger-500x500-removebg-preview.png";
+import image3 from "@/assets/images/dc-ac-power-inverter-1-removebg-preview-4cJz1OeJ.png";
+import image4 from "@/assets/images/product4-removebg-preview-BiEgiAnL.png";
+import image5 from "@/assets/images/product6-removebg-preview-DAC2mlE5.png";
+import image6 from "@/assets/images/ChatGPT Image Jul 17, 2025, 05_27_47 PM.png";
+import image7 from "@/assets/images/POWER_SAFF_Tubular_Deep-Cycle_Battery-removebg-preview.png";
+import image8 from "@/assets/images/camera-removebg-preview.png";
 
 export default function Items() {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const products = [
     {
-      name: "Heating Boiler",
-      category: "Home Energy",
-      price: 140,
-      desc: "High-efficiency gas boiler for modern homes. Save energy and money with smart heat control.",
+      name: "Zero Drop Solar Charge",
+      category: "Electronics",
+      desc: "Zero Drop Solar Charge",
       image: image1,
     },
     {
-      name: "RO Water Filter",
-      category: "Purified Water",
-      price: 100,
-      desc: "Crystal-clear, mineral-balanced water with our advanced RO filtration system.",
+      name: "Solar Battery-Charger",
+      category: "Solar Battery-Charger",
+      desc: "Solar Battery-Charger",
       image: image2,
     },
     {
-      name: "Solar Inverter",
-      category: "Clean Energy",
-      price: 250,
-      desc: "Smart solar inverter for residential and commercial energy management.",
+      name: "Solar Charger",
+      category: "Solar Charger",
+      desc: "High-efficiency solar charger for all your devices on the go.",
       image: image3,
     },
     {
-      name: "Modern Radiator",
-      category: "Comfort Living",
-      price: 190,
-      desc: "Elegant and efficient radiator for warm, cozy spaces during winter.",
+      name: "Solar Charge Controller",
+      category: "Electronics",
+      desc: "Solar Charge Controller",
       image: image4,
     },
     {
-      name: "Heating Boiler",
-      category: "Home Energy",
-      price: 140,
-      desc: "High-efficiency gas boiler for modern homes. Save energy and money with smart heat control.",
-      image: image1,
+      name: "CPU Model Inverter",
+      category: "Inverter",
+      desc: "CPU Model Inverter",
+      image: image5,
     },
     {
-      name: "RO Water Filter",
+      name: "Inverter Battery",
       category: "Purified Water",
-      price: 100,
-      desc: "Crystal-clear, mineral-balanced water with our advanced RO filtration system.",
-      image: image2,
+      desc: "Next-gen inverter for seamless power backup and energy efficiency.",
+      image: image6,
     },
     {
-      name: "Solar Inverter",
-      category: "Clean Energy",
-      price: 250,
-      desc: "Smart solar inverter for residential and commercial energy management.",
-      image: image3,
+      name: "Battery Tubular Deep-Cycle",
+      category: "Battery",
+      desc: "High-capacity tubular deep-cycle battery for long-lasting energy storage.",
+      image: image7,
     },
     {
-      name: "Modern Radiator",
-      category: "Comfort Living",
-      price: 190,
-      desc: "Elegant and efficient radiator for warm, cozy spaces during winter.",
-      image: image4,
+      name: "Solar Camera",
+      category: "Camera",
+      desc: "Solar Camera",
+      image: image8,
     },
   ];
 
@@ -80,7 +76,6 @@ export default function Items() {
             <h2 className="text-lg font-semibold text-sky-950 mt-48">
               {product.name}
             </h2>
-            <p className="text-gray-400">₹{product.price.toFixed(2)}</p>
             <button
               onClick={() => setActiveIndex(index)}
               className="mt-3 mb-6 bg-sky-950 hover:bg-sky-700 text-white text-sm uppercase px-5 py-2 rounded-full transition-all duration-300"
@@ -88,7 +83,6 @@ export default function Items() {
               Quick View
             </button>
           </div>
-
           {/* Popup Modal */}
           {activeIndex === index && (
             <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-center z-50">
@@ -100,7 +94,6 @@ export default function Items() {
                 >
                   &times;
                 </button>
-
                 {/* Image Side */}
                 <div className="bg-sky-950 flex justify-center items-center md:w-1/2 p-4">
                   <img
@@ -109,7 +102,6 @@ export default function Items() {
                     className="w-[300px] h-[300px] object-cover "
                   />
                 </div>
-
                 {/* Info Side */}
                 <div className="p-8 md:w-1/2 flex flex-col justify-center">
                   <h2 className="text-3xl font-bold mb-2">
@@ -122,10 +114,6 @@ export default function Items() {
                   <p className="text-sm text-gray-700 leading-relaxed mb-4">
                     {product.desc}
                   </p>
-                  <span className="text-3xl font-semibold text-sky-700 mb-5">
-                    ₹{product.price.toFixed(2)}
-                  </span>
-
                   <div className="flex gap-4">
                     <button className="bg-sky-700 text-white px-6 py-2 rounded-full hover:bg-sky-800 transition">
                       Review
