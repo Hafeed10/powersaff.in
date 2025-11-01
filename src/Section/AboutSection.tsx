@@ -15,7 +15,7 @@ function AboutSection() {
     {
       icon: "🚚",
       title: "Free and Fast Delivery",
-      desc: "Free delivery for all orders over ₹140",
+      desc: "Free delivery for all orders over ₹15000",
       from: "top",
     },
     {
