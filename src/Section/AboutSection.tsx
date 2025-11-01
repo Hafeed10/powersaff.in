@@ -51,7 +51,7 @@ function AboutSection() {
             the past 25 years. With over three decades of experience, our team
             has immense expertise in inverter solutions. Pallikkunnu, now
             housing state-of-the-art inverter manufacturing facilities. Our
-            latest plant produces high-quality lithium, tubular and batters.
+            latest plant produces high-quality lithium and tubularbatters .
             At Powersaff, we offer solar power solutions, including MPPT/PWM
             controllers, UPS systems, and premium solar panels with grid
             inverters, making residential and commercial solar installations
